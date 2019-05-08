@@ -1,0 +1,801 @@
+\documentclass[12pt,a4paper]{report}
+
+% Use ou a sequencia de comandos para configurar a página e o espaçamento,
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm,a4paper]{geometry}
+\usepackage{setspace}
+%\singlespacing
+\onehalfspacing 
+%\doublespacing
+
+                                 
+%\setlength{\parskip}{0.2cm} %espaçamento entre paragrafos
+\usepackage{indentfirst}
+\setlength{\parindent}{1.3cm}  % Altere o espaçamento do parágrafo aqui.
+
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx,psfrag}
+
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{times, amsmath, amsfonts, amssymb, amsthm}
+\usepackage{xcolor}
+\usepackage{url}
+%\usepackage[all]{xy}
+\usepackage{lmodern}
+
+\usepackage{hyperref}                                          %gera hiperlinks no pdf
+           \hypersetup{colorlinks, citecolor=blue, linkcolor=black, urlcolor=black} 
+
+\usepackage{array}
+
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{corolario}[teorema]{Corolário}
+\newtheorem{proposicao}[teorema]{Proposi\c{c}\~ao}
+\newtheorem{definicao}[teorema]{Defini\c{c}\~ao}
+\theoremstyle{definition}
+\newtheorem{exemplo}{Exemplo}
+%\theoremstyle{remark}
+\newtheorem*{obs}{Observação}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\PX}{\mathcal{P}\left(\mathbf{X}\right)}
+\newcommand{\FX}{\mathcal{F}\left(\X\right)}
+
+\newcommand{\bb}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bbb}{\begin{eqnarray}}
+\newcommand{\eee}{\end{eqnarray}}
+\newcommand{\benu}{\begin{enumerate}}
+\newcommand{\eenu}{\end{enumerate}}
+\newcommand{\tr}{\mbox{tr}}
+\newcommand{\cao}{\c{c}\~ao }
+\newcommand{\coes}{\c{c}\~oes }
+
+\newcommand{\vetx}{\mathbf{x}}
+\newcommand{\vety}{\mathbf{y}}
+\newcommand{\vetw}{\mathbf{w}}
+\newcommand{\vetn}{\mathbf{n}}
+\newcommand{\ima}{\mathbf{a}}
+\newcommand{\ims}{\mathbf{s}}
+\newcommand{\imb}{\mathbf{b}}
+\newcommand{\imt}{\mathbf{t}}
+
+\newcommand{\alphav}{\mbox{\boldmath$\alpha$}}
+\newcommand{\betav}{\mbox{\boldmath$\beta$}}
+\newcommand{\thetav}{\mbox{\boldmath$\theta$}}
+\newcommand{\lambdav}{\mbox{\boldmath$\lambda$}}
+\newcommand{\gammav}{\mbox{\boldmath$\gamma$}}
+\newcommand{\varthetav}{\mbox{\boldmath$\vartheta$}}
+\newcommand{\nuv}{\mbox{\boldmath$\nu$}}
+\newcommand{\sigmav}{\mbox{\boldmath$\sigma$}}
+
+\newcommand{\tn}{\,\mathrm{t}\,}
+\newcommand{\sn}{\,\mathrm{s}\,}
+\newcommand{\agg}{\,\mathrm{a}\,}
+\newcommand{\cc}{\, \mathtt{c} \,}
+\newcommand{\bpm}{\begin{bmatrix}}
+\newcommand{\epm}{\end{bmatrix}}
+
+% \renewcommand{\rmdefault}{phv} % Arial
+% \renewcommand{\sfdefault}{phv} % Arial
+
+%\usepackage[toctitles]{titlesec}
+%\titleformat{\chapter}
+%  {\normalfont\bfseries}{\thechapter}{1em}{\uppercase}
+%\titleformat{\section}
+%  {\normalfont\bfseries}{\thesection}{0.7em}{\sc}
+%\titleformat{\subsection}
+%  {\normalfont\bfseries}{\thesubsection}{0.4em}{}
+
+%\newcommand{\capitulo}[1]{\chapter{\MakeUppercase{#1}}}
+%\newcommand{\secao}[1]{\section{\bf \textsc{#1}}}
+%\newcommand{\subsecao}[1]{\subsection{\bf #1}}
+
+%\titlespacing{\chapter}{0cm}{-0.7cm}{1.5cm}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\lhead{}
+%\chead{}
+%\rhead{\thepage}
+%\lfoot{}
+%\cfoot{}
+%\rfoot{}
+%\renewcommand{\headrulewidth}{0pt}
+
+%\makeatletter
+%\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+%                    \thispagestyle{fancy}%
+%                    \global\@topnum\z@
+%                    \@afterindentfalse
+%                    \secdef\@chapter\@schapter}
+%\makeatother
+
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\thechapter.\ #1}{}}
+%\setlength{\headheight}{15pt}
+
+\addto\captionsbrazil{\renewcommand{\contentsname}{}}
+\addto\captionsbrazil{\renewcommand{\listfigurename}{}}
+\addto\captionsbrazil{\renewcommand{\listtablename}{}}
+\addto\captionsbrazil{\renewcommand{\bibname}{}}
+
+%\makeindex
+\begin{document}
+
+% Elaboração da CAPA!!!
+
+%
+% Primeira Página
+%
+\thispagestyle{empty}
+\begin{center}
+\includegraphics[width=14.8cm]{UELmoderno.png}
+{\color{green!45!black} \rule{\columnwidth}{1.5mm}}
+
+\vspace{.7cm}
+
+{\Large \uppercase{ Ana Maria Garcia Trzeciak }}
+
+\vspace{1.0cm}
+
+{\large \uppercase{ DISSERTAÇÃO DE MESTRADO }}
+
+\vspace{5.0cm}
+
+\LARGE \textbf{Medida da taxa de intera\coes de Neutrinos no Experimento Neutrinos Angra:} 
+\\ Simula\cao e Análise de Intera\coes de Neutrinos de Usinas Nucleares 
+
+\normalsize
+
+\vspace{6.0cm}
+
+{\color{green!45!black} \rule{\columnwidth}{1.5mm}}
+
+Londrina \\ 2019
+\end{center}
+
+%
+% Segunda Página
+%
+\newpage
+\thispagestyle{empty}
+
+\begin{center}
+{\Large \uppercase{ Ana Maria Garcia Trzeciak }}
+
+\vspace{6cm}
+
+\Large \textbf{Medida da taxa de intera\coes de Neutrinos no Experimento Neutrinos Angra:} 
+\\ Simula\cao e Análise de Intera\coes de Neutrinos de Usinas Nucleares      
+
+%\MakeUppercase{} letra caixa alta
+
+\normalsize
+
+\vspace{3cm}
+\end{center}
+
+\noindent \hspace{7.5cm} 
+\begin{minipage}{8.5cm}{
+\begin{singlespace} 
+Dissertação de mestrado apresentada ao Departamento de Física da Universidade Estadual de Londrina, como requisito parcial para a obtenção do título de Mestre em Física.\\
+\end{singlespace}
+
+Orientador: \parbox[t]{6.0cm}{Prof. Dr. Pietro Chimenti}}
+\end{minipage}
+
+\vspace{5cm}
+
+\begin{center}
+Londrina\\
+2019
+\end{center}
+
+%
+% Terceira Página
+%
+%\newpage
+%\thispagestyle{empty}
+%\vspace*{8cm}
+
+%\begin{center}
+% Página com a catalogação elaborada pela biblioteca central.
+%\end{center}
+
+%
+% Quarta Página
+%
+\newpage
+\thispagestyle{empty}
+
+\begin{center}
+{\large \uppercase{ Ana Maria Garcia Trzeciak }}
+
+\vspace{2cm}
+
+\Large \textbf{Medida da taxa de intera\coes de Neutrinos no Experimento Neutrinos Angra:} 
+\\ Simula\cao e Análise de Intera\coes de Neutrinos de Usinas Nucleares
+
+\normalsize
+\vspace{2cm}
+\end{center}
+
+
+\noindent \hspace{7.5cm} 
+\begin{minipage}{8.5cm}{
+\begin{singlespace} Dissertação de mestrado apresentada ao Departamento de Física da Universidade Estadual de Londrina, como requisito parcial para a obtenção do título de Mestre em Física.
+\end{singlespace}}
+
+\vspace{1.5cm}
+\hspace{1.5cm} {\uppercase{ \bf Banca Examinadora}}
+
+\vspace{1cm}
+\begin{center}
+
+\begin{singlespace}
+\underline{\hspace{7cm}} \\
+Prof. Dr. Nome do 1 Titular da Banca \\
+Universidade Estadual de Londrina
+
+\vspace{1cm}
+\underline{\hspace{7cm}} \\
+Prof. Dr. Nome do 2 Titular da Banca \\
+Nome da Universidade
+
+\vspace{1cm}
+\underline{\hspace{7cm}} \\
+Prof. Dr. Nome do 3 Titular da Banca \\
+Nome da Universidade
+\end{singlespace}
+
+\vspace{2cm}
+
+Londrina, DIA de MÊS de ANO.
+\end{center}
+\end{minipage}
+
+
+%
+% Quinta Página
+%
+\newpage
+\thispagestyle{empty}
+
+\vspace*{19cm}
+
+\noindent \hspace{7.5cm} 
+\begin{minipage}{8.5cm}
+\textit{Dedico este trabalho a.........\\
+(opcional)}
+\end{minipage}
+
+%
+% Sexta Página
+%
+\newpage
+\thispagestyle{empty}
+
+\begin{center}
+ {\bf AGRADECIMENTOS}
+\end{center}
+
+\vspace{1cm}
+
+Escreva os agradecimentos aqui.
+   
+Não esqueça de acrescentar o apoio financeiro caso tenha conseguido bolsa de alguma instituição.
+ 
+%
+% Epigrafe (Opcional)
+% Se quiser incluir epigrafe, descomente as linhas abaixo.
+%
+% \newpage
+% \thispagestyle{empty}
+% 
+% \vspace*{16cm}
+% 
+% \noindent \hspace{7.5cm} 
+% \begin{minipage}{8.5cm}
+% \textit{Se quiser, colocar a epigrafe aqui.}
+% \end{minipage}
+
+%
+% RESUMO
+%
+\newpage
+\thispagestyle{empty}
+
+\begin{singlespace}
+ \noindent \uppercase{SOBRENOME}, Nome + Prenome. {\bf Título do trabalho:} subtitulo. Ano da defesa. Número total de folhas. Dissertação (Mestrado em Matemática Aplicada e Computacional) -- Universidade Estadual de Londrina, Londrina, ano.
+
+\vspace{1pc}
+\begin{center}
+\uppercase{\bf RESUMO}
+\end{center}
+\vspace{1pc}
+
+\noindent O resumo deve apresentar de forma concisa os objetivos, metodologia e os resultado alcançados. Recomenda-se utilizar o verbo na voz ativa. Espaçamento simples, sem recuo de parágrafos.
+
+\vspace{2pc}
+\noindent {\bf Palavras-chave:} Palavra-chave 1. Palavra-chave 2. Palavra-chave 3. Palavra-chave 4. Palavra-chave 5.
+\end{singlespace}
+
+
+%
+% ABSTRACT
+%
+\newpage
+\thispagestyle{empty}
+
+\begin{singlespace}
+\noindent \uppercase{SOBRENOME}, Nome + Prenome. {\bf Título do trabalho em inglês:} subtitulo em inglês. Ano da defesa. Número total de folhas. Dissertação (Mestrado em Matemática Aplicada e Computacional) -- Universidade Estadual de Londrina, Londrina, ano.
+
+\vspace{1pc}
+\begin{center}
+\uppercase{\bf ABSTRACT}
+\end{center}
+\vspace{1pc}
+
+\noindent Tradução do resumo para o inglês.
+
+\vspace{2pc}
+\noindent {\bf Keywords:} Keyword 1. keyword 2. keyword 3. keyword 4. keyword 5.
+\end{singlespace}
+
+%
+% Criação dos índices.
+%
+
+\begingroup
+\let\clearpage\relax
+\newpage
+\begin{center}
+ \MakeUppercase{\bf Sumário}
+\end{center}
+\tableofcontents
+\thispagestyle{empty}
+
+\newpage
+\begin{center}
+ \MakeUppercase{\bf Lista de Figuras}
+\end{center}
+\listoffigures
+\thispagestyle{empty}
+
+\newpage
+\begin{center}
+ \MakeUppercase{\bf Lista de Tabelas}
+\end{center}
+\listoftables
+\thispagestyle{empty}
+\endgroup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     AQUI COMEÇA O CONTEÚDO DA DISSERTAÇÃO          %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introdução}
+
+
+Antigamente acreditava-se que o estado final da matéria era o átomo, uma partícula minúscula, maciça e indivissível que combinava-se para formar todos os objetos conhecidos. No entanto, em 1897, Joseph John Thomson utilizando um tubo de raios catódicos descobriu o que seria mais tarde chamado de elétron \cite{GRIFFTHS}. A descoberta abriu portas para perguntas sobre o que estaria de fato dentro do átomo e desconstuiu o conceito de que o átomo era o constituinte fundamental da matéria. 
+
+
+
+
+
+%Foi no intuito de descobrir o que tinha além do átomo que as pesquisas em torno da procura de partículas cada vez menores começou. Avançar em escalas de comprimento cada vez menores significa alcançar escalas de energia cada vez maior, 
+
+
+%Foi Rutherford quem propôs um modelo âtomico mais parecido com o que temos hoje. Ele sugeriu que o elétron deveria orbitar um núcleo com carga positiva, e conseguiu comprovar esse modelo em 1911, utilizando um experimento com partículas $\alpha$ colidindo em uma lâmina de ouro. 
+
+
+\chapter{Fontes de Neutrinos}	
+
+
+Existem diversas fontes de neutrinos, que podem ser divididos em fontes de neutrinos artificiais e fontes de neutrinos naturais. As duas principais fontes de neutrinos artificiais são reatores de fissão, produzindo antineutrinos do tipo elétron a partir de decaimento beta de fragmentos de fissão e aceleradores de prótons, produzindo neutrinos de múons ou antineutrinos de decaimentos de partículas secundárias resultantes das colisões do feixe com o alvo. Os neutrinos astrofísicos provenientes de fontes naturais podem fornecer informações tanto sobre a física dos neutrinos quanto sobre importantes fenômenos astrofísicos, como supernovas e galáxias ativas.
+Neste capítulo daremos um breve resumo sobre as fontes naturais e artificiais de neutrinos, no entanto, neutrinos de reatores nuclear descreveremos com mais detalhes em um capítulo a parte. A figura \ref{fig:fonte} mostra as diversas fontes de neutrinos de acordo com sua energia e fluxo.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.31]{fonte}
+\caption{Fontes de neutrinos naturais e artificiais \cite{SPIERING}.}
+\label{fig:fonte}
+\end{figure}
+
+\section{Neutrinos Cosmológicos}
+
+Neutrinos provenientes do Bing Bang são o que chamamos de neutrinos cosmológicos ou neutrinos de relíquia. Esses neutrinos cósmicos de fundo são diferentes do que conhecemos como radiação cósmica de fundo, devido ao fato de que os neutrinos surgiram no instante seguinte ao Bing Bang, enquanto que a radiação cósmica de fundo data de quando o universo tinha 379.000 anos de idade.
+ 
+Os neutrinos de relíquia possuem energia menores que 1eV o que torna extremamente difícil a detectação dessas partículas, embora tenhamos evidências claras da existência desses neutrinos a partir de medições cosmológicas, até hoje nunca houve uma detectação direta \cite{EREDITATO}. Para conseguir detectar esses neutrinos de fundo, os detectores deveriam ser maiores do que os existentes e a energia requirida seria ultra alta, o que atualmente a tecnolgia ainda não permite. 
+ 
+\section{Neutrinos Solares}
+
+As reações de fusão termonuclear no interior do núcleo do Sol produzem neutrinos eletrônicos com energia da ordem de 1Mev e o fluxo dessas partículas que chegam à Terra é de aproximadamente $6\times10^{10}cm^{-2}s^{-1}$ \cite{GIUNTI}. Como as interações de neutrinos com a matéria são extremamente fracas, praticamente todos os neutrinos produzidos no núcleo do Sol passam imperturbados pelo interior solar e chegam a Terra quase que indectáveis, o que requer detectores enormes para observar tais partículas.  
+
+O processo que alimenta a reações termonucleares no Sol e dá origem a neutrinos solares é chamado de cadeia próton-próton\footnote{\textit{A teoria de que os prótons são o princípio básico da qual as estrelas geram sua energia remonta aos anos 1920, depois da descoberta crucial do tunelamento quântico e as implicações que este tinha como facilitador da fusão a temperaturas teoricamente impossíveis que em 1930, Hans Bethe desenvolveu a moderna teoria sobre a nucleossíntese estelar.}} (cadeia \textit{pp}) e ciclo CNO, que são representados, respectivamente, nas figuras \ref{fig:cadeiapp} e \ref{fig:ciclocno}:
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.30]{cadeia_pp}
+\caption{Geração de neutrinos solares na cadeia próton-próton.}
+\label{fig:cadeiapp}
+\end{figure}
+
+A vasta maioria dos neutrinos solares vem do ciclo \textit{pp}, no entanto, possuem energia menor que 0.42Mev, o que torna difícil a detectação. Os ciclos \textit{pp-I} e \textit{pp-III} dominada pelos neutrinos do Be$^{7}$ e do B$^{8}$ respectivamente, são os que fornecem a maioria dos neutrinos detectáveis, na ordem de energia de 0.861MeV. As reaçãos do \textit{pep} (próton-elétron-próton) e \textit{hep} (hélio-próton) são previstas mas ainda não foram observadas devido a sua raridade. 
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{ciclo_cno}
+\caption{Ciclo CNO (carbono-nitrogênio-oxigênio), responsável pela geração de energia nas estrelas mais massivas \cite{GIUNTI}.}
+\label{fig:ciclocno}
+\end{figure}
+
+
+A figura \ref{fig:energia} mostra o espectro de energia dos neutrinos solares. As linhas em vermelho são espctros de neutrinos do ciclo CNO, que contribui com cerca de 1$\%$ para a energia do Sol.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.55]{energia}
+\caption{Distribuição do fluxo dos neutrinos solares em função da energia, como previsto pelo Modelo
+Solar Padrão. As vasta maioria dos neutrinos solares detectados se originam nas reações do Be$^{7}$  e B$^{8}$, devido as altas energias. Linhas de fluxos então em cm$^{-2}$s$^{-1}$ e fluxo espectral estão em cm$^{-2}$s$^{-1}$Mev$^{-1}$ \cite{ADELBERGER}.}
+\label{fig:energia}
+\end{figure}
+
+A primeira detectação de neutrinos solares aconteceu em 1970 no experimento Homestake, liderado pelos astrofísicos Raymond Davis e John N. Bahcall. Sua finalidade era coletar e contar os neutrinos emitidos pela fusão nuclear ocorrendo no Sol. Foi construído no período de 1965-1967, com um método sugerido por Pontecorvo e mais tarde proposto independentemente por Alvarez. A técnica era baseada na reação inversa do decaimento beta
+
+
+\begin{equation*}
+\mathrm{\nu_{e} + Cl^{37} \rightarrow Ar^{37} + e^{-}}
+\end{equation*}
+o neutrino é capturado pelo Cl$^{37}$ e produz um elétron e Ar$^{37}$, um isótopo radioativo do Argônio. O limiar da reação é 0.814MeV, ou seja, apenas neutrinos próximos a essa energia seriam capturado pelo Cl$^{37}$, sendo assim detectava neutrinos principalmente de Be$^{7}$ e B$^{8}$ \cite{DAVIS}.
+
+	A experiência detectou apenas 1/3 do fluxo previsto de neutrinos, a princípio pensou-se que poderia ser algum erro experimental ou de cálculo de Davis, sendo provado que o detector estava operando de acordo com o previsto essa hipótese foi descartada. Outras duas hipóteses foram levantadas: os modelos teóricos solares poderiam estar errados sobre a estrutura do Sol ou poderia haver problema no modelo teórico dos neutrinos. Devido as divergências teóricas e experimentais, esse impasse ficou conhecido como o \textit{problema dos neutrinos solares}. A pergunta que rondava a cabeça de muitos físicos era: por que o fluxo de neutrinos eletrônicos provenientes do Sol não era o mesmo detectado aqui na Terra? A solução para essa pergunta foi encontrada na Oscilação de Neutrinos, onde os neutrinos do elétron provenientes do Sol se convertem nos outros dois sabores durante o trajeto \cite{DAVIS}.
+
+	As primeiras conclusões sobre a natureza do fenômeno conhecido como problema dos neutrinos solares foi resolvido no experimento SNO (Sudbury Neutrino Observatory) proposto em 1984. O detector é formado por uma grande esfera com 100 ton de água pesada (D$_{2}$O) e fotomultiplicadores montados em uma geodésica em volta do tanque. Está localizado na mina de Creighton, perto da cidade de Sudbury no Canadá.
+	
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.24]{sno_exp}
+\caption{Visão esquemática do Sudbury Neutrino Observatory \cite{MCDONALD}.}
+\label{fig:sno}
+\end{figure}	
+
+O SNO foi projetado para ter sensibilidade não apenas aos neutrinos eletrônicos mas sim aos três sabores de neutrino e era possível observar separadamente três tipos de interações dos neutrinos com o detector.
+	     
+
+\begin{eqnarray*}
+\nu_{e} + d & \rightarrow & e^{-} + p + p  \textrm{ - 1.44 MeV (Reação de corrente carregada)}\\
+\nu_{x} + d & \rightarrow & \nu_{x} + n + p  \textrm{ - 2.2 MeV (Reação de corrente neutra)} \\
+\nu_{x} + e^{-} & \rightarrow & \nu_{x} + e^{-}  \textrm{ (Reação de espalhamento elástico)}
+\end{eqnarray*}
+onde $\nu_{x}$ = elétron, tau ou múon.
+
+A primeira reação é sensível apenas ao neutrino do elétron e produz um elétron energético que ao passar pela aguá pesada produz um cone de luz via processo Cherenkov\footnote{O efeito Cherenkov surge quando partículas carregadas, como os elétrons, propagam-se em um determinado meio com velocidade maior que a da própria luz.}, que é detectado pelos fotosensores. A segunda reação é igualmente sensível à todos os sabores de neutrinos e produz um nêutron livre, que foi detectado nas três fases do experimento. Para uma melhor diferenciação dessas duas reações, foi adicionado NaCl ao tanque de água pesada (fase 2), o nêutron livre era capturado pelo Cl e produzia uma cascata de raios gama com energia próxima de 8.6MeV. Esse aumento na eficiência de captura do nêutron, forneceu um distribuição isotrópica de luz que permitiu a distinção do evento de corrente neutra (NC) para o evento de corrente carregada (CC). Por comparação de taxas das duas reações foi possível determinar se os neutrinos eletrônicos oscilaram antes de chegar ao detector.
+
+A terceira reação é muito mais fraca que as outras duas e é mais sensível ao neutrino do elétron do que aos outros sabores e também produz um elétron energético, esse elétron possui uma direção preferencial que é contrária a direção do elétron da primeira reação, sendo assim possível diferenciar uma reação da outra \cite{MCDONALD}.
+
+Os primeiros dados do SNO foram publicados em 2001, trazendo evidências claras de que mais de dois terços dos neutrinos provenientes do interior do Sol mudaram de sabor antes de chegar ao detector. O fluxo total de neutrinos do decaimento do B$^{8}$ também foi determinado, 5.25 $\pm$ 0.16 milhões de neutrinos por centímetro quadrado por segundo, e concordava com previsões teóricas feitas por Davis \cite{MCDONALD}.   
+
+Outro detector mais recente que busca compreender melhor neutrinos solares é o Borexino, que opera desde 2007 no \textit{Laboratori Nazionali del Gran Sasso}, na Itália. O seu principal objetivo é detectar neutrinos de baixa energia produzidos no interior do Sol. O detector é constituído por um cintilador líquido, onde o núcleo do detector é constituído por uma esfera de nylon com 8.5m de diâmetro e 100$\mu$m de espessura, que contém 300ton de cintilador líquido. O cintilador é envolvido por uma esfera de aço inoxidável de 13.7m de diâmetro, onde estão localizador 2.212 fotomultiplicadores. Todo o detector está contido em um tanque cilíndrico cheio de água de alta pureza equipado com 208 fotomultiplicadores cujo objetivo é servir como um veto ativo de Cherenkov contra múons cósmicos residuais \cite{BOREXINO2}. Uma imagem detalhada do detector é encontrada na figura \ref{fig:borexino}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.50]{borexino}
+\caption{Visão esquemática da estrutura do Borexino. De fora para dentro: o tanque de água externo; a Esfera de Aço Inoxidável, onde cerca de 2.200 tubos fotomultiplicadores (PMTs) são montados; o vaso de nylon mais externo, que serve como barreira contra o radônio; o vaso de nylon mais interno, que contém 300 ton de cintilador líquido \cite{BOREXINO2}.}
+\label{fig:borexino}
+\end{figure}
+
+Os primeiros resultados vieram em 2007 com a detectação de neutrinos com energia de 0.862Mev oriundos do decaimento do Be$^{7}$, os resultados foram consistentes com as previsões teóricas do Modelo Padrão Solar \cite{BOREXINO1}. E em 2014, foram publicados os resultados da primeira detectação direta de neutrinos produzidos pela cadeia próton-próton do Sol, também condizentes com a teoria solar \cite{BOREXINO}.
+
+\section{Neutrinos de Supernovas}
+
+Supernovas (SNs) são poderosas explosões que terminam com a vida de uma estrela. O material expelido pela estrela contém elementos essenciais para a evolução de galáxias, estrelas, planetas e a vida em geral. Algumas SNs produzem um remanescente compacto, como uma estrela de nêutrons ou um buraco negro. A classificação de supernovas é feita com base na curva de luminosidade e também pelo espectro de luz, que depende da composição do envelope da estrela progenitora da SN. A figura \ref{fig:supernova} mostra um esquema de divisão dos tipos de supernovas.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.4]{supernova}
+\caption{Esquema de classificação das Supernovas \cite{GIUNTI}.}
+\label{fig:supernova}
+\end{figure}
+
+A classificação possui duas grandes categorias, SNs tipo I e SNs tipo II. SNs tipo I são caracterizadas pela não presença de linhas de hidrogênio no espectro, enquanto que SNs tipo II as possuem. No que diz respeito à física de neutrinos, os tipos mais interessantes são os tipos Ib, Ic e tipo II, uma vez que emitem um elevado fluxo de neutrinos de todos os sabores. 
+
+O processo de produção e emissão do fluxo de neutrinos para estrelas que queimam seu combustível do tipo \textit{core-collapse} é feito em duas etapas. A primeira etapa ocorre quando a estrela queimou a maior parte de seu combustível e em seu centro resta apenas um núcleo de ferro. Neste momento, ocorre a fotodesintegração, no qual o núcleo de ferro é bombardeado por fótons dando origem a prótons e nêutrons. Os recéns produzido prótons são capturados pelos elétrons degenerados do núcleo, formando um nêutron e um neutrino, num processo chamado decaimento beta inverso.
+
+\begin{equation*}
+\mathrm{\gamma + Fe^{56} \rightarrow 13\alpha + 4n}
+\end{equation*}
+e
+\begin{equation*}
+\mathrm{e^{-} + p \rightarrow n + \nu_{e}}
+\end{equation*}
+Os neutrinos eletrônicos produzidos carregam quase toda energia cinética dos elétrons capturados e podem escapar livremente da estrela, devido a baixa densidade. Nesta fase o espectro dos neutrinos é não térmicos, a sua energia média cresce de 12MeV até 16MeV, e a luminosidade atinge cerca de 10$^{53}$erg/s.
+
+Quando a densidade do núcleo passa a aumentar, os neutrinos não conseguem escapar da estrela e o colapso passa a ser adiabático com número leptônico constante. Durante esse estágio que dura poucos segundos e que é termicamente menos intensa, são produzidos neutrinos e antineutrinos de todos os sabores carregando uma grande quantidade da energia de ligação da estrela de neutrôns \cite{GIUNTI}.
+
+Nessa segunda fase, os processos que produzem neutrinos são aniquilação elétron-pósitron,
+
+\begin{equation*}
+\mathrm{e^{-} + e^{+} \rightarrow \nu + \bar{\nu}}
+\end{equation*}
+fotoaniquilação
+\begin{equation*}
+\mathrm{\gamma + e^{\pm} \rightarrow e^{\pm} + \nu + \bar{\nu}}
+\end{equation*}
+por decaimento de plasmon
+\begin{equation*}
+\mathrm{\gamma \rightarrow n + \bar{\nu}}
+\end{equation*}
+por "bremsstrahlung"  elétron-núcleon
+\begin{equation*}
+\mathrm{e^{\pm} + N \rightarrow e^{\pm} + N + \nu + \bar{\nu}}
+\end{equation*}
+e por "bremsstrahlug"  núcleon-núcleon
+\begin{equation*}
+\mathrm{N + N \rightarrow N + N + \nu + \bar{\nu}}
+\end{equation*}
+ 
+\subsection{Observação da SN1987A}
+
+A supernova SN 1987A, ocorrida na galáxia satélite da Via Láctea chamada Grande Nuvem de Magalhães, foi a explosão estelar recente mais próxima da Terra, a uma distância de aproximadamente 50 kcp (165.000 anos-luz). Foi suficientemente próximo para que detectores em uso na época conseguissem detectar. 
+
+As duas principais observações ocorreram no Kamiokande II no Japão e no Irvine-Michigan-Brookhaven (IMB) nos Estados Unidos, ambos detectores tipo Cherenkov e paralelamente pelo detector Baksan Scintillator Telescope (BST), que é preenchido por um cintilador orgânico formado basicamente por moléculas de alcano e hidrocarbonetos. As características básicas, como faixa de energia, luminosidade, escala de tempo estavam relativamentes consistentes com o esperado \cite{EREDITATO}.
+
+\section{Neutrinos Atmosféricos}
+
+A atmosfera terrestre é intensamente bombardeada por raios cósmicos provenientes do espaço, estes que são compostos principalmente de prótons, com cerca de 10\% a 15\% de núcleos mais pesados, consistentes com a composição química geral da matéria insterestelar. Quando atingem a atmosfera, esses prótons de alta energia interagem com as moléculas de ar para produzir chuvas de píons, que subsequentemente decaem para múons e neutrinos de múons.
+
+\begin{eqnarray*}
+\pi^{+} \longrightarrow \mu^{+} + \nu_{\mu},  &  \pi^{-} \longrightarrow \mu^{-} + \bar{\nu_{\mu}}
+\end{eqnarray*}
+
+Essas partículas secundárias provenientes do decaimento do píon possuem um espectro de energia que tem um pico na faixa do GeV e aumenta até a energia mais alta com uma lei de potência aproximada \cite{GIUNTI}. Alguns múons chegam ao solo e são detectados como raios cósmicos, enquanto que a outra parte se decompõe gerando mais neutrinos do múon e neutrinos do elétron.
+
+\begin{eqnarray*}
+\mu^{+} \longrightarrow e^{+} + \nu_{e} + \bar{\nu_{\mu}},  &  \mu^{-} \longrightarrow e^{-} + \bar{\nu_{e}} + \nu_{\mu}
+\end{eqnarray*}
+ 
+Os neutrinos gerados desse decaimento possuem energias de 100 MeV a 100 GeV que podem ser detectados em laboratórios subterrâneos, os quais fornecem informações acerca do número de eventos em relação a energia e direção de incidência no detector.
+
+As primeiras observações dos neutrinos atmosféricos foram contraditórias, com alguns experimentos observando aproximadamente a razão esperada, enquanto outros viram significativamente menos neutrinos do que o esperado. O Kolar Gold Field Mine na Índia e o East Rand Proprietary Gold Mine, na África do Sul foram os primeiros grupos a reportarem a aparição de neutrinos atmosféricos, ambos em 1965 \cite{GIUNTI}. 
+
+Entre as décadas de 70 e 80 foram propostos experimentos para medir o decaimento do próton ($p \longrightarrow \pi ^{0} + e^{+} + \bar{\nu_{e}}$). Dentre todos, os mais relevantes foram o Kamiokande e o IMB, ambos detectores de efeito Cherenkov. Inicialmente nesses detectores, os neutrinos atmosféricos atuariam como ruído, ou seja, eram detectados mas seu sinal não era o desejado pois poderiam ser confundidos com o decaimento do próton. Os resultados dos dois detectores apontaram uma razão (razão de neutrinos medidos por neutrinos esperados) menor do que o previsto. Este déficit no número de neutrinos medidos ficou conhecido como \textit{anomalia do neutrino atmosférico}.
+
+	No intuito de resolver esse problema o Kamiokande recebeu um \textit{upgrade}, passando a ter 50.000 toneladas de água e rodeado por fotomultiplicadores que captam a luz Cherenkov. O Super-Kamiokande começou a tomada de dados em 1996 e mediu até 2001, fornecendo resultados suficientes para resolver o problema. O neutrino do múon estava oscilavando para um neutrino do tau. 
+
+
+\section{Geoneutrinos}
+
+Geoneutrinos são neutrinos produzidos pelo decaimento radioativo de elementos no interior da Terra. A maioria são antineutrinos do elétron e são originados no decaimento beta do U$^{238}$, Th$^{232}$ e do K$^{40}$ \cite{SHIMIZU}. Esses neutrinos possuem energia menores que 3.4MeV e a série de reações naturais que os produzem são dadas abaixo.
+
+\begin{eqnarray*}
+\mathrm{U^{238}} & \rightarrow & \mathrm{Pb^{206}} + 8\alpha + 6e^{-} + 6\bar{\nu}_{e} \textrm{ + 51.698MeV}\\
+\mathrm{U^{235}} & \rightarrow & \mathrm{Pb^{207}} + 7\alpha + 4e^{-}  + 4\bar{\nu}_{e} \textrm{ + 46.402MeV} \\
+\mathrm{Th^{232}} & \rightarrow & \mathrm{Pb^{208}} + 6\alpha + 4e^{-}  + 4\bar{\nu}_{e} \textrm{ + 42.625MeV} \\
+\mathrm{K^{40}} & \xrightarrow{89.3\%} & \mathrm{Ca^{40}} + e^{-}  + \bar{\nu}_{e} \textrm{ + 1.311MeV} \\
+\mathrm{K^{40}} & \xrightarrow{10.7\%} & \mathrm{Ar^{40}} + \nu_{e} \textrm{ + 1.505MeV}
+\end{eqnarray*}
+
+
+O método usado para detectar os antineutrinos é o decaimento beta inverso: $\mathrm{\bar{\nu}_{e} + p \rightarrow e^{+} + n}$. As únicas reações sensíveis a detectação são as reações com urânio e tório, pois os antineutrinos provenientes delas possuem energia próximas a 3.6MeV. As reações do K$^{40}$, produzem antineutrinos não detectáveis, pois a energia é de 1.8MeV. Sendo assim, o limiar de cerca de 1.8MeV implica que apenas antineutrinos produzidos pelo decaimento beta com energia relativamente grande são detectáveis \cite{GIUNTI}. 
+
+A primeira detectação de geonetrinos aconteceu em 2005 no KamLAND, detector localizado na mina Kamioka no Japão, e observou que a taxa de antineutrinos estava de acordo com o esperado para os modelos terrestres. O experimento Borexino publicou seus resultados em 2010, e também  concordou com os modelos terrestres \cite{SHIMIZU}.  
+
+\section{Neutrinos de Altas Energias}
+
+Impulsionado pelos avanços nos experimentos com raios cósmicos e a busca incessante para conseguir explicar objetos e ambientes extremos no cosmos é que a física de altas energias surgiu. A observação desses neutrinos de altas energias pode fornecer respostas sobre a origem e mecanismos de aceleração dos raios cósmicos de altas energias. Como raios cósmicos são partículas carregadas, este atributo torna impossível traçar seus caminhos de volta aos seus pontos de origem, pois os campos magnéticos que preenchem o espaço os afetam, alterando suas trajetórias. Mas os poderosos aceleradores cósmicos naturais que produzem raios cósmicos também produzem neutrinos cósmicos. Os neutrirnos por interagirem fracamente com a matéria viajam até a Terra quase sem serem incomodados, dando assim um indicador direto de sua fonte. As principais fontes astrofísicas energéticas dessas partículas são estrelas binárias e a formação de buracos negros no \textit{Active Galactic Nuclei} (AGN)\footnote{Um Active Galactic Nuclei é uma região compacta no centro de uma galáxia que tem uma luminosidade muito superior à normal em pelo menos uma parte do espectro electromagnético com características que indicam que a luminosidade não é produzida pelas estrelas. Uma galáxia que hospeda um AGN é chamada de "galáxia ativa".}. 
+
+
+A primeira observação de neutrinos de altas energias aconteceu em 2017 e foi feita pelo \textit{IceCube Neutrino Observatory} na estação Amundsen-Scott no Polo Sul e confirmada por telescópios ao redor da Terra. O IceCube é um detector Cherenkov de grande volume feito com 5160 fotomultiplicadores em uma profundidade de 1450m e 2450m no gelo antártico natural, e foi projetado para detectar neutrinos num espectro de energia TeV-PeV.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.19]{ice_cube}
+\caption{IceCube Neutrino Observatory \cite{ICECUBE}.}
+\label{fig:icecube}
+\end{figure}
+
+Quando um neutrino com energia muita colide com um núcleo atômico no detector, o observatório envia coordenadas para telescópios em todo o mundo menos de um minuto após a detecção para observações posteriores. Um único neutrino detectado em 22 de setembro de 2017, com energia de aproximadamente 300TeV, traçou o caminho até um blazar conhecido onde o núcleo de uma galáxia gigante dispara partículas em jatos maciços de partículas elementares, alimentadas por um buraco negro supermassivo no seu núcleo. Os astrônomos haviam designado este blazar como TXS 0506 + 056. As observações provam que o TXS 056 + 056 está entre as fontes mais luminosas do universo conhecido e, portanto, adiciona apoio a uma observação multi-mensageira de um motor cósmico poderoso o suficiente para acelerar os raios cósmicos de alta energia e produzir os neutrinos associados \cite{ICECUBE}.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.9]{ice_cube_1}
+\caption{Esta exibição de eventos, do neutrino de alta energia detectado pelo IceCube em 22 de setembro de 2017, mostra um múon, criado pela interação de um neutrino com o gelo muito próximo do IceCube, que deixa um rastro de luz enquanto cruza o detector. Nesta exibição, a luz coletada por cada sensor é mostrada com uma esfera colorida. O gradiente de cor, de vermelho a verde/azul, mostra a sequência de tempo \cite{ICECUBE}.}
+\label{fig:icecube}
+\end{figure}
+
+
+\section{Neutrinos de Aceleradores}
+
+Uma das maneiras de se estudar neutrinos de forma eficaz é criando feixes intensos de neutrinos usando aceleradores de partículas. O processo de criação dessas partículas começa quando acelera-se prótons em um acelerador de partículas padrão (normalmente um síncrotron). Um feixe de prótons é extraído do acelerador e direcionado para um alvo. Os prótons interagem com o material alvo, produzindo um grande número de píons secundários (entre outras partículas). Os píons por serem partículas carregadas, permite o uso de ímãs para orientá-los e focaliza-los. Assim que ajustado, o feixe de píons se dirige para um alvo onde conseguem decair em múons e em neutrinos ou antineutrinos do múon. A seleção de neutrino ou antineutrino no feixe final é determinado pelo sinal da carga do píon, se o píon for carregado positivamente teremos um feixe de neutrinos, e caso for de carga negativa o feixe é feito principalmente de antineutrinos. No final de tudo, há um grande volume de material que absorve todas as partículas exceto os neutrinos, resultando assim um feixe quase puro da partícula desejada.
+
+Nesse tipo de experimento, a distância do detector final também é um fator importante. Quando os detectores estão posicionados perto da fonte do feixe (geralmente 1km) e o neutrino percorre uma distância muito curta é chamado de \textit{short baseline neutrino experiment}. Esse tipo de experimento é ideal para caracterizar o feixe, verificando o número de neutrinos e qual sua energia, tudo isso feito antes de ocorrer a oscilação. Exemplos de experimentos que trabalham nessa linha incluem o ND280 no Japão, o MicroBooNE, MINERvA, ICARUS e o Short-Baseline Near Detector (SBND) no Fermilab \cite{NEUTRINO}. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.3]{sbnd}
+\caption{Imagem esquemática do Short-Baseline Near Detector (SBND) no Fermilab. O SBND é um dos três detectores de neutrinos de argônio líquido posicionados no \textit{Booster Neutrino Beam} (BNB) como parte do programa \textit{Short-Baseline Neutrino Program} \cite{SBND}. }
+\label{fig:sbnd}
+\end{figure}
+
+ No caso contrário, onde o detector está posicionado em distâncias enormes, é chamado de \textit{long-baseline neutrino experiment} e é ideal para estudar oscilações de neutrinos. Experimentos nessa linha incluem o T2K e Super-Kamiokande no Japão e NOvA e DUNE no Fermilab. 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.29]{dune}
+\caption{Imagem esquemática \textit{Deep Underground Neutrino Experiment} (DUNE). O DUNE consiste de dois detectores de neutrinos, um próximo à fonte do feixe e o outro em Sanford Underground Research Laboratory, em Lead, Dakota do Sul, à 1300km da fonte do feixe \cite{DUNE}.}
+\label{fig:dune}
+\end{figure}
+
+\chapter{Neutrinos de Usinas Nucleares}
+
+Neste capítulo abordaremos os tipos de reações nucleares nas quais partículas e núcleos colidem e se transformam em outros núcleos e partículas. Consideraremos também os dois meios pelos quais a energia pode ser derivada de reações nucleares: fissão e fusão. E por fim mostraremos o funcionamento de uma usina nuclear e como são formados os neutrinos nessa fonte.
+
+
+\section{Reações Nucleares}
+
+Um dos meios de se obter informações sobre os núcleos é bombardea-los com outras partículas e observar os resultados. Quando uma partícula incide em um núcleo, diversos processos podem ocorrer. A partícula incidente pode ser absorvida pelo núcleo, e outras partículas podem ser emitidas, ou a partícula incidente pode ser espalhada, elásticamente ou inelásticamente.
+
+Abaixo temos uma representação, um núcleo X é bombardeado por uma partícula a, resultando em um núcleo Y e um partícula b:
+ 
+\begin{equation*}
+\mathrm{a + X \rightarrow Y + b}
+\end{equation*}
+
+Uma reação nuclear como essa, e de fato para qualquer outra reação acontecer as leis de conservação devem ser respeitadas. O número total de núcleons deve ser o mesmo antes e depois da reação, a carga deve ser conservada e energia, momento linear e momento angular também devem ser manter conservados. 
+
+A quantidade de enegia liberada ou absorvida durante uma reação é chamada de energia de reação Q. O valor Q é determinado pela diferença de massas iniciais menos as massas finais multiplicado por $c^{2}$. Quando Q é positivo, a energia é liberada durante a reação e a chamamos de reação exotérmica. Durante a reação exotérmica, a massa total das partículas iniciais é maior que a massa total das partículas finais. Se a massa total das partículas iniciais for  menor que a massa total das partículas finais, é necessário dar energia para que a reação ocorra, sendo assim chamada de reação endotérmica. O valor Q para esta reação é negativo \cite{SERWAY}.
+
+Quando estamos trabalhando com partículas, outras quantidades devem ser levadas em conta. No caso de decaimentos, o item de maior interesse é o tempo de vida da partícula em questão. Seja N o número de núcleos radioativos num certo instante t. A variação de N entre o tempo t e o tempo t + dt é dada por
+
+\begin{equation}
+dN = -\Gamma N dt
+\end{equation}
+onde $\Gamma$ é uma constante de proporcionalidade chamada constante de decaimento. Segue da equação acima
+
+\begin{equation}
+N(t) = N(0) e^{-\Gamma t)}
+\end{equation}
+onde $N(0)$ é o número de partículas inicialmente.
+	
+Evidentemente, o número de partículas diminui exponencialmente com o tempo. Com isso a média ou vida média $\tau$ é o inverso da constante de decaimento.
+
+\begin{equation}
+\tau = \frac{1}{\Gamma}
+\end{equation}
+
+A meia vida $t_{1/2}$ é definida como o tempo que leva para que o número de núcleos e a taxa de decaimento diminiuam à metade. Uma partícula nem sempre gera os mesmos produtos no decaimento, na verdade, a maioria das partículas podem decair utilizando diferentes rotas. E para cada modo de decaimento devemos ter um $\Gamma$ diferente. Sendo assim, a constante de decaimento é um somatório de todos os modos de decaimento da partícula. 
+
+\begin{equation}
+\Gamma_{tot} = \sum_{i=1}^{n} \Gamma_{i}
+\end{equation}
+
+Uma outra quantidade deve ser levada em conta, a seção de choque da reação. Esta quantidade mede a probabilidade de uma reação nuclear ocorrer. É uma medida de superfície e usualmente é medida em metros quadrados ou barns: $1b = 10^{-28} m^{2}$. A seção de choque varia com a energia ou a velocidade. A medida que a energia ou velocidade da partícula incidente aumentam, a seção de choque diminiu. Ou seja, as reações com núcleos obedecem a regra geral de ter alguma proporcionalidade a $1/v$, onde $v$ é a velocidade da partícula. No entanto, esse comportamento é alterado no que chamamos de \textit{ressonância} - em faixas muito específicas 	ou muito estreitas, certos núcleos tem alta capacidade de interação com a partícula incidente, formando assim um semi estado ligado antes de se dividir. 
+
+As seções de choque podem ser específicas e diferirem por valor para cada reação. Por exemplo a seção de choque para uma captura do nêutron difere da seção de choque de fissão. Sendo assim, o somatório de todos esses valores é o que nos dá a seção de choque total da reação naquela energia específica de nêutrons \cite{MICHAEL}. 
+
+\begin{equation}
+\sigma_{tot} = \sum_{i=1}^{n} \sigma_{i}
+\end{equation}
+
+O número de partículas espalhadas em um elemento de ângulo sólido é proporcional a seção de choque diferencial. A relação entre seção de choque diferencial, o ângulo sólido e a seção de choque total é dada por\footnote{A demonstração desse resultado pode ser encontrada em: Quantum Mechanics - Concepts and Applications, Nouredine Zettilli, 2Ed, pg 617.}
+
+\begin{equation}
+\sigma = \int d\sigma = \displaystyle \int_{4\pi} \left(\frac{d\sigma}{d\Omega}\right) d\Omega 
+\end{equation}
+
+\subsection{Reações com Nêutrons}
+   
+As reações nucleares que envolvem nêutrons são importantes para o entendimento dos reatores nucleares. O nêutron por não possuir carga elétrica não sofre a ação coulombiana, sendo assim viajará através da matéria com muito mais facilidade do que outras partículas nucleares de energia semelhante. Durante a viajem, o nêutron rápido (energia de aproximadamente 1MeV) poderá colidir com outras partículas e núcleos, sofrendo espalhamento ou sendo capturado pelo núcleo. A reação mais comum é o espalhamento, e mesmo que este seja elástico, o nêutron perde alguma energia devido ao recuo do núcleo. Em cada evento de espalhamento que um nêutron sofre, sua energia cinética irá diminuir até ser da ordem de $kT$, onde $k$ é a constante de Boltzmann e $T$ é a temperatura absoluta. Um nêutron que tem uma energia $kT$ é chamado nêutron térmico. Por outro lado, a captura de nêutron por um núcleo de um átomo pode resultar na emissão de outras partículas nucleares do núcleo ou a fragmentação do núcleo em dois (fissão nuclear) \cite{SERWAY}.  
+
+\subsubsection{Fissão Nuclear}
+
+Núcleos muito pesado (Z>92) estão sujeitos a fissão espontâneamente. Ele se dividi em dois núcleos, mesmo no caso onde o núcleo não é pertubado. No entanto, alguns núcleos pesados podem ser induzidos à fissão com a captura de nêutrons térmicos. Nesse processo, a força de repulsão coulombiana provoca a separação dos fragmentos de fissão, com a liberação de energia. 
+
+Vamos tomar como exemplo a fissão do elemento $^{235}U$, a captura de um nêutron térmico por esse núcleo pode ser representado por 
+
+\begin{equation*}
+\mathrm{_{0}^{1}n + _{92}^{235}U \rightarrow _{92}^{236}U* \rightarrow X + Y + neutrons}
+\end{equation*}
+onde $\mathrm{^{236}U*}$ representa um estado excitado intermediário, onde o excesso de energia causa violentas oscilações e em seguida a fissão. Os núcleos produtos X e Y são chamados de fragmentos de fissão.  Há varios elementos X e Y, que combinados satisfazem a reação acima, conservando massa, energia, carga e número de núcleos. Esses fragmentos de fissão podem continuar decaindo por decaimento $\beta$, gerando assim antineutrinos. Dependendo da reação, 2 ou 3 nêutrons podem ser emitidos. O número médio de nêutrons emitidos na fissão do $\mathrm{^{235}U}$ é aproximadamente 2,5. A energia de desintegração liberada nesse processo de fissão é de aproximadamente Q= 200MeV. A maior parte aparece em energia cinética dos elementos de fissão, e os nêutrons levam cerca de 1MeV-2MeV de energia cada um em média \cite{MICHAEL}.
+
+\subsubsection{Reatores Nucleares de Fissão}
+
+Um reator nuclear é um sistema projetado para manter uma reação em cadeia de fissão auto-sustentada. Para manter uma reação em cadeia, um dos nêutrons liberados no processo de fissão deve ser capturado por outro núcleo de $\mathrm{^{235}U}$ e causar outra fissão. O número médio de nêutrons que provoca outra fissão é chamado de \textit{fator de multiplacação k} de uma reator. Em um reator de urânio, o valor máximo desse fator é 2.5. No entanto, alguns desses nêutrons podem escapar do reator antes de encontrar outro núcleo fissionável, ou ainda, podem ser capturados por outros núcleos não-fissionáveis presente no reator. Sendo assim o fator $k$ nunca é máximo. Para o caso onde $k=1$, a reação é auto-sustentada, se $k<1$ a reação irá se extinguir e se $k>1$, a velocidade da reação irá aumentar e ficará incontrolável. Onde este último é o príncipio básico para a criação de bombas atômicas.  
+
+A maioria dos reatores nucleares usam como combustível o urânio natural. O constituínte principal do urânio natural é o $\mathrm{^{238}U}$, não fissionável, com 99.3\%, e os outros 0.7\% é do isótopo $\mathrm{^{235}U}$. A alta velocidade do nêutron nessas reações favorece a interação com o $\mathrm{^{238}U}$, e no intuito de desacelerar esses nêutrons, até mesmo para evitar que eles escapem do reator, é que são usados os moderadores. Um moderador é um material constituído de água ou carbono e que tem um núcleo leve, é, portanto, colocado em volta do material fissionável para diminuir a energia desses nêutrons e assim facilitar a interação com $\mathrm{^{235}U}$.
+
+A figura \ref{fig:fissao} mostra algumas características de uma reator de água pressurizada usado frequentemente para gerar eletricidade. Em um circuito fechado primário é possível ver que a fissão aquece a água até altas temperaturas, esta mesma água é usada como moderadora e mantida sob pressão para evitar que ferva. A água quente é bombeada para um trocador de calor, onde ela aquece a água do circuito secundário e converte esta água em vapor, que é usada então para acionar as turbinas que produzem energia elétrica. A água do circuito primário é separada da água do circuito secudário para evitar a contaminação pelos núcleos radioativos no centro do reator. 
+
+ 
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.48]{fissao}
+\caption{Imagem esquemática de um reator de água pressurizada. A água quente sob pressão no centro do reator serve como moderadora e é bombeada através de um trocador de calor e o calor é transferido para a água contida no circuito secundário. A aguá quente neste último circuito é convertida em vapor, que é levado até uma turbina para a geração de energia elétrica. }
+\label{fig:fissao}
+\end{figure}
+
+Para manter o sistema com um fator de $k$ próximo à 1 é necessário o uso de algum método de controle. São usados mecanismos de controle naturais, de retroalimentação negativa, e métodos mecânicos. Se $k$ subir para maior que 1, o calor produzido na reação derreteria o reator. Para evitar que isso aconteça é que são usadas hastes feitas de algum material, como o cádmio, que possui uma alta seção de choque para captura de nêutrons. O controle de velocidade desses nêutrons são feitos com a inserção (diminuição de velocidade) ou retirada dessas hastes (aumento de velocidade) no centro do reator \cite{SERWAY}. 
+
+
+\subsubsection{Fusão Nuclear}
+
+O processo de fusão ocorre quando dois núcleos leves, como os de deutério ($\mathrm{^{2}H}$) e trítio ($\mathrm{^{3}H}$), se fundem para formar um núcleo mais pesado. As reações envolvendo deutério e trítio são
+
+\begin{eqnarray*}
+\mathrm{_{1}^{2}H} + \mathrm{_{1}^{2}H} & \rightarrow & \mathrm{_{2}^{3}H} + \mathrm{_{0}^{1}n} \textrm{ + Q= 3.27MeV}\\
+\mathrm{_{1}^{2}H} + \mathrm{_{1}^{2}H} & \rightarrow & \mathrm{_{1}^{3}H} + \mathrm{_{1}^{1}H} \textrm{ + Q= 4.03MeV} \\
+\mathrm{_{1}^{2}H} + \mathrm{_{1}^{3}H} & \rightarrow & \mathrm{_{2}^{4}H} + \mathrm{_{0}^{1}n} \textrm{ + Q= 17.59MeV}
+\end{eqnarray*}
+onde Q é a energia liberada. A produção de energia a partir da fusão de núcleos leves é muito promissora devido a relativa abundândia do combustível: a água. Uma outra vantagem, é que na fusão poucos produtos radioativos são formados na reação. Mas, infelizmente, a tecnologia para tornar a fusão uma fonte de energia ainda não foi totalmente desenvolvida. 
+
+Um dos principais problemas na obtenção de energia por fusão vem do fato de que para conseguir juntar dois núcleos suficientemente próximos para a força nuclear vencer a repulsão Coulombiana, é necessário energias cinéticas muito grande. Tais energias podem ser obtidas em aceleradores de partículas, no entanto, para esses casos o processo de espalhamento domina e não é possível a fusão. Uma outra alternativa é aquecer as partículas a temperaturas grandes os suficientes para que a reação de fusão ocorra como resultados de colisões aleatórias devido à agitação térmica. Estamos falando de temperaturas na ordem de $10^{7}$K, temperaturas encontradas nos  núcleos de estrelas. Nestas altas temperaturas, os átomos são ionizados e o sistema consiste de uma coleção de elétrons e núcleos, chamado de plasma \cite{SERWAY}.  
+
+Além de altas temperaturas, há outros dois requisitos que devem ser satisfeitos para que um reator de fusão seja bem sucedido: a densidade de íons $n$, e o tempo de confinamento $\tau$. O tempo de confinamento é o tempo em que íons são mantidos à temperatura de ignição ($T\simeq 10^{7}$K para a reação do deutério-trítio e $T\simeq 10^{8}$K para a reação do deutério-deutério). O físico J. D. Lawson, mostrou que para a energia produzida ser maior do que a energia necessária para aquecer o plasma, deve-se obedecer ao seguinte critério 
+
+\begin{eqnarray*}
+\mathrm{n\tau} & \geq & 10^{14} \mathrm{s/cm^{3}} \mathrm{ - deutério-trítio} \\
+\mathrm{n\tau} & \geq & 10^{16} \mathrm{s/cm^{3}} \mathrm{ - deutério-deutério}
+\end{eqnarray*}
+
+Para atender ao critério de Lawson, a densidade de íons deve ser grande, fazendo com que a taxa de interações entre eles aumente, e o tempo de confinamento deve ser longo. A probabilidade de fusão entre duas partículas aumenta à medida que $\tau$ aumenta.
+
+Embora as densidades tenham sidos alcançadas, o confinamento do plasma ainda é muito difícil. Duas técnicas de confinamento vem sendo investigadas: o confinamento inercial, onde os reagentes são comprimidos a densidades muito altas, e o confinamento magnético, onde campos magnéticos toroidais confinam o plasma a densidades relativamentes baixa por tempos mais longos \cite{SERWAY}.
+
+\section{Emissão de Antineutrinos}
+
+A medida que os elementos $\mathrm{^{235}U}$ e $\mathrm{^{238}U}$ vão sendo consumidos, os fragmentos de fissão vão sendo gerados. Tais fragmentos são instáveis, e para alcançar a estabilidade decaem, principalmente por decaimento $\beta$, em outras partículas. Nesse processo de decaimento $\beta$ é que são gerados os antineutrinos do elétron. Como dito anteriormente, há vários elementos que podem ser gerados como produtos de fissão, como é o caso do $\mathrm{^{241}Pu}$ e do $\mathrm{^{239}Pu}$, e o fato desses antineutrinos serem de elementos diferentes, se reflete em seu espectro de energia. Os espectros são diferentes para cada isótopo, e é mostrado na figura \ref{fig:espectro}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.48]{espectro}
+\caption{Espectro de antineutrinos calculados para os quatros principais isótopos envolvidos na geração de energia por fissão nuclear \cite{MULLER}.}
+\label{fig:espectro}
+\end{figure}
+
+Mesmo com todo o esforço que foi feito para fazer esses cálculos, nossa compreensão desses espectros continua sendo um importante contribuinte para o orçamento de erro experimental de experimentos usando antineutrinos de reatores. 
+
+ 
+
+
+
+
+
+\appendix
+
+%\capitulo{Título do Apêndice}
+\chapter{Apêndice}
+Remova esse item se sua dissertação não tiver apêndice.
+
+%
+%
+% Estilo Referencias
+\newpage
+\begingroup
+\let\clearpage\relax
+\begin{center}
+ \MakeUppercase{\bf Referências}
+\end{center}
+\addcontentsline{toc}{chapter}{Referências} 
+%
+%
+\bibliographystyle{acm}
+\bibliography{references} 
+\endgroup
+\end{document}
